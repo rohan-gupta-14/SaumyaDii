@@ -22,6 +22,8 @@ function scrollToSection(id) {
     if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
     }
+    // Explicitly start music when entering memories if not already playing
+    if (!isPlaying) startMusic();
 }
 
 // Floating Props Generator
@@ -189,13 +191,24 @@ const bgMusic = document.getElementById('bg-music');
 const musicToggle = document.getElementById('music-toggle');
 let isPlaying = false;
 
+function startMusic() {
+    if (bgMusic.currentTime === 0) bgMusic.currentTime = 25; // Skip first 25s
+    bgMusic.play().then(() => {
+        isPlaying = true;
+        musicToggle.classList.add('playing');
+        musicToggle.querySelector('.icon').innerText = '🎵';
+    }).catch(err => {
+        console.log("Autoplay blocked. Waiting for interaction.");
+    });
+}
+
 function toggleMusic() {
     if (isPlaying) {
         bgMusic.pause();
         musicToggle.classList.remove('playing');
         musicToggle.querySelector('.icon').innerText = '🔇';
     } else {
-        if (bgMusic.currentTime === 0) bgMusic.currentTime = 25; // Skip first 25s
+        if (bgMusic.currentTime === 0) bgMusic.currentTime = 25; 
         bgMusic.play();
         musicToggle.classList.add('playing');
         musicToggle.querySelector('.icon').innerText = '🎵';
@@ -205,14 +218,16 @@ function toggleMusic() {
 
 musicToggle.addEventListener('click', toggleMusic);
 
-// Auto-play on first interaction (browsers block auto-play without interaction)
+// Try playing on load
+window.addEventListener('load', startMusic);
+
+// Also start on any first interaction as a fallback
 document.addEventListener('click', () => {
-    if (!isPlaying) {
-        bgMusic.currentTime = 25; // Skip first 25s
-        bgMusic.play().then(() => {
-            isPlaying = true;
-            musicToggle.classList.add('playing');
-            musicToggle.querySelector('.icon').innerText = '🎵';
-        }).catch(err => console.log("Autoplay prevented:", err));
-    }
+    if (!isPlaying) startMusic();
+}, { once: true });
+document.addEventListener('touchstart', () => {
+    if (!isPlaying) startMusic();
+}, { once: true });
+document.addEventListener('keydown', () => {
+    if (!isPlaying) startMusic();
 }, { once: true });
