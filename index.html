@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Saumya ✨</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader-content">
+            <div class="heart-loader"></div>
+            <p>Creating something beautiful...</p>
+        </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+    <div class="floating-props" id="floating-props">
+        <!-- Props will be injected via JS or CSS -->
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h2 class="hero-quote animate-text">“Some people don’t just enter lives…<br>they leave kindness everywhere they go.”</h2>
+                <h1 class="hero-title">For Saumya Di...`</h1>
+                <button class="enter-btn" onclick="scrollToSection('gallery')">Enter Memories</button>
+            </div>
+        </section>
+
+        <!-- Story Scroll Gallery Section -->
+        <section id="gallery" class="story-gallery">
+            <div class="section-header">
+                <h2 class="section-title">A Journey of Kindness</h2>
+                <div class="header-line"></div>
+                <p class="section-subtitle">Scroll to relive the moments</p>
+            </div>
+            
+            <div class="story-container" id="story-container">
+                <!-- Story items will be injected via JS -->
+            </div>
+        </section>
+
+        <!-- Image Modal -->
+        <div id="image-modal" class="modal">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div class="modal-content-wrapper glass">
+                <img class="modal-image" id="modal-img">
+                <div class="quote-container">
+                    <p class="modal-quote" id="modal-quote"></p>
+                    <p class="modal-poetry" id="modal-poetry"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline Section -->
+        <section id="timeline" class="timeline-section">
+            <div class="section-header">
+                <h2 class="section-title">The Saumya Effect</h2>
+                <div class="header-line"></div>
+                <p class="section-subtitle">Qualities that make you special</p>
+            </div>
+            
+            <div class="timeline-container">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass">
+                        <h3>Kindness</h3>
+                        <p>A warmth that reaches everyone you meet, making them feel valued and heard.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass">
+                        <h3>Positive Energy</h3>
+                        <p>Your presence is like a breath of fresh air, naturally lifting the spirits of those around you.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass">
+                        <h3>Supportive Nature</h3>
+                        <p>Always there with a helping hand or an encouraging word when it's needed most.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass">
+                        <h3>Beautiful Smile</h3>
+                        <p>A smile that carries genuine warmth and has the power to brighten anyone's day.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass">
+                        <h3>Pure Heart</h3>
+                        <p>You move through the world with such sincerity and goodness that it inspires everyone.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card glass">
+                        <h3>Inspiring Personality</h3>
+                        <p>The way you carry yourself and treat others is a testament to the beautiful person you are.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Message Section -->
+        <section id="message" class="message-section animate-on-scroll">
+            <div class="message-card glass">
+                <div class="note-decoration">🌸</div>
+                <div class="handwritten-note">
+                    <p>Dear Saumya Di,</p>
+                    <p>You may not realize it, but the way you treat people, the way you smile, and the way you carry kindness actually makes a difference.</p>
+                    <p>Some people are remembered for achievements. Some are remembered for their hearts.</p>
+                    <p>You are one of them. ✨</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ending Section -->
+        <section id="ending" class="ending-section">
+            <div class="stars-container" id="stars-container"></div>
+            <div class="ending-content">
+                <div class="typing-container">
+                    <h2 id="typing-text-1"></h2>
+                    <h1 id="typing-text-2"></h1>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>Made with admiration 💜</p>
+        </footer>
+    </main>
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="song/song1.mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-toggle" class="music-btn glass">
+        <span class="icon">🎵</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
